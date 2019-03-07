@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" href="css/index.css" />
+	</head>
+	<body>
+		<!--模拟屏幕区域-->
+		<section id="wrap">
+		
+			
+		</section>
+	</body>
+	<script type="text/javascript">
+		//浏览器默认行为
+		document.addEventListener('touchstart',function(event){
+			event.preventDefault();
+		});
+		
+		//适配
+		(function(){
+			var width = document.documentElement.clientWidth;
+			var styleNode = document.createElement('style');
+			styleNode.innerHTML = 'html{font-size: '+ width/16 +'px !important;}';
+			document.head.appendChild(styleNode);
+		})();
+		
+		//点透事件处理
+		(function(){
+			var aNodes = document.querySelectorAll('a');
+			for (var i=0;i<aNodes.length;i++) {
+				aNodes[i].addEventListener('touchstart',function(){
+					window.location.href = this.href;
+				});
+			};
+		})();
+		
+		
+		
+	</script>
+</html>
